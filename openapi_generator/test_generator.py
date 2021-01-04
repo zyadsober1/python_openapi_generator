@@ -14,7 +14,7 @@ class TestOpenapiGenerator(unittest.TestCase):
         gen.export("example.yml", extension="yaml")
 
         with open("example.yml") as f:
-            spec = yaml.load(f)
+            spec = yaml.load(f, Loader=yaml.FullLoader)
         errors_iterator = openapi_v3_spec_validator.iter_errors(spec)
         self.assertEqual(len(list(errors_iterator)), 0)
 
