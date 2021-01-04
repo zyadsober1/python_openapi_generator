@@ -132,7 +132,7 @@ class OpenapiGenerator():
         """
         if extension == "json":
             with open(filename, 'w') as output_file:
-                json.dump(self.configs, output_file)
+                json.dump(self.configs, output_file, separators=(",", ":"))
         elif extension == "yaml":
             with open(filename, "w") as output_file:
                 output_file.write(yaml.dump(self.configs, default_flow_style=False))
